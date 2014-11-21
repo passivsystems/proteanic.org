@@ -9,186 +9,28 @@
         <div data-sw-component="menu" data-sw-source="sw/bookmarks/index">Placeholder for menu</div>
       </div>
       <div class="col-md-8" role="main">
-        <h2>Documentation</h2>
-
-        <p>
-          For now we present a few sample codex files for various different purposes.
-        </p>
-        <p>
-          We will push some decent docs and a tutorial soon.
-        </p>
-
-        <p>
-          Broadly codex files are written to encode (document) an API.
-        </p>
-
-        <section data-sw-nav="Simple" id="simple" data-sw-content>
-          <h3>Simple codex</h3>
-
-          <pre class="prettyprint">
-{"simple" {"path/data" {:get {}}}}
-          </pre>
+        <section data-sw-nav="Overview" id="overview" data-sw-content>
+          <div class="page-header">
+            <h2>Overview</h2>
+          </div>
 
           <p>
-            This defines a service with one endpoint <code>/simple/path/data</code> which can be called
-            with a <code>GET</code> method.
+            Take control of your RESTful API's. Encode then, document them, simulate them and figure out how failure affects your architecture. No invasive changes to your code base.
           </p>
         </section>
 
-        <section data-sw-nav="Documentation" id="doc" data-sw-content>
-          <h3>A codex with some basic documentation</h3>
-
-          <pre class="prettyprint">
-{"simple" {"path/data" {:get {:doc "A simple service"}}}}
-          </pre>
-
-          <p>
-            A doc attribute lets us put basic documentation against many items in a codex.
-          </p>
-        </section>
-
-        <section data-sw-nav="Preferences" id="preferences" data-sw-content>
-          <h3>Defining preferences using includes</h3>
-
-          <pre class="prettyprint">
-{
-  :includes [ "defaults.edn" ]
-
-  "simple" {
-    "path/data" {:get {}}
-  }
-}
-          </pre>
-
-          <p>
-            Using the defaults include for our 'organisation' or personal preferences we could override the
-            status returned by a get to be 204 or anything we choose.
-          </p>
-        </section>
-
-        <section data-sw-nav="Multiple responses" id="multi-response" data-sw-content>
-          <h3>A codex demonstrating multiple responses - possible errors.</h3>
-
-          <pre class="prettyprint">
-{
-  :includes [ "defaults.edn" ]
-
-  "simple" {
-    "path/data" {
-      :get {
-        :rsp {
-          :200 {:doc "OK"}
-
-          :400 {:doc "Bad Request"}
-
-          :404 {:doc "Not Found"}
-        }
-      }
-    }
-  }
-}
-          </pre>
-
-          <p>
-            All possible responses, good and bad can be documented.
-          </p>
-        </section>
-
-        <section data-sw-nav="Response bodies" id="response-bodies" data-sw-content>
-          <h3>A codex demonstrating response bodies.</h3>
-
-          <pre class="prettyprint">
-{
-  :includes [ "defaults.edn" ]
-
-  "simple" {
-    "path/data" {
-      :get {
-        :rsp {
-          :200 {
-            :doc "OK"
-            :body "path/to/body/200-ref.json"
-          }
-
-          :400 {:doc "Bad Request"}
-        }
-      }
-    }
-  }
-}
-          </pre>
-
-          <p>
-            Response bodies are created in data files.  If you want a json response, just
-            point to a json file.  This allows responses to be encoded in their native format.
-            The content type for the response is calculated based on the file type - though it
-            is possible to override this.
-          </p>
-        </section>
-
-        <section data-sw-nav="Types and variables" id="types-variables" data-sw-content>
-          <h3>A codex demonstrating types and variables.</h3>
-
-          <pre class="prettyprint">
-{
-  :includes [ "defaults.edn" ]
-
-  :title "Pet Store API Docs"
-
-  "petstore" {
-
-    :types {
-      :Status "(available|pending|sold)"
-    }
-    :vars {
-      "status" {:type :Status :doc "Updated status of the pet"}
-    }
-
-    "api/pet/${petId}" {
-
-      :types {
-        :PetId "[0-9a-zA-Z]{3,7}"
-      }
-      :vars {
-        "petId" {:type :PetId :doc "ID of pet"}
-      }
-
-      :post {
-        :doc "Updates a pet in the store with form data"
-        :req {
-          :query-params {:required {"name" "${name}" "status" "${status}"}}
-          :body {"name" "${name}" "status" "${status}"}
-        }
-        :rsp {
-          :405 {:doc "Validation exception"}
-        }
-        :vars {
-          "name" {:type :String :doc "Updated name of the pet"}
-          "status" {:type :Status :doc "Updated status of the pet"}
-        }
-      }
-    }
-  }
-}
-          </pre>
-
-          <p>
-            This sample is taken from the <code>sample-petstore.cod.edn</code> codex which lives at the top
-            level of the Protean project.
-
-            A number of capabilities are demonstrated here.
-          </p>
+        <section data-sw-nav="Features" id="features" data-sw-content>
+          <div class="page-header">
+            <h2>Features</h2>
+          </div>
 
           <ul>
-            <li>definition of reusable types where types aliases may be used, pulled in from includes</li>
-            <li>definition of reusable variables which can be declared at multiple levels in a codex</li>
-            <li>constraining request parameters</li>
+            <li>Encode API's</li>
+            <li>Document API's</li>
+            <li>Simulate API's</li>
+            <li>Hotswap API behaviour on the fly over the network</li>
+            <li>Auto generate curl commands to test your API's</li>
           </ul>
-
-          <p>
-            It is worth noting that for the curl usage command which generates examples of how to curl
-            endpoints, and for the apidocs any of these variables can automatically generate values.
-          </p>
         </section>
       </div>
     </div>
