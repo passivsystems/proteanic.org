@@ -1,0 +1,61 @@
+<html>
+  <body>
+    <section data-sw-nav="Part 2 - encoding (docs/types)" id="tut-part-2" data-sw-content>
+      <div class="page-header">
+        <h2>Part 2 - Encoding</h2>
+      </div>
+      <p class="lead">Documentation and types</p>
+
+      <pre class="prettyprint">
+{
+:includes ["defaults.edn"]
+
+:title "Tutorial 2"
+
+"tutorial-2" {
+"play/${stateId}" {
+  :get {
+    :doc "A single player REST adventure world"
+    :description
+"A simple text adventure world for one player.
+
+Sample usage may be something like /tutorial-2/play/cave, indicating the player
+is in a cave."
+    :vars {
+      "stateId" {:type :Int :doc "ID for the state of the game"}
+    }
+    :rsp {
+      :404 {:doc "Not Found"}
+    }
+  }
+}
+}
+}
+      </pre>
+
+      <h3><span class="glyphicon glyphicon-info-sign" /> Explanation</h3>
+      <p>This adds a few things to the previous codex definition :</p>
+      <ul>
+        <li>a path parameter <code>stateId</code></li>
+        <li>a simple doc string</li>
+        <li>a multiline description for providing semantic information</li>
+        <li>some variable information defining the type of the path parameter</li>
+        <li>a 404 (Not Found) error response</li>
+      </ul>
+
+      <h3><span class="glyphicon glyphicon-play" /> Run it</h3>
+      <p>Create your apidocs again.</p>
+      <ol>
+        <li>
+          copy <code>tutorial-2.cod.edn</code> from <code>public/tutorial</code> to your codex directory
+        </li>
+        <li>
+          enter <code><kbd>lein run visit -f tutorial-2.cod.edn -b '{"locs":["tutorial-2"], "commands":["doc"], "directory":"silk_templates/data/protean-api"}'</kbd></code>
+        </li>
+        <li>
+          open the <code>index.html</code> file created in <code>silk_templates/site</code>
+        </li>
+      </ol>
+    </section>
+  </body>
+</html>

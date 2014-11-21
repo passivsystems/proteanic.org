@@ -1,0 +1,49 @@
+<html>
+  <body>
+    <section data-sw-nav="Part 1 - encoding (basics)" id="tut-part-1" data-sw-content>
+      <div class="page-header">
+        <h2>Part 1 - Encoding</h2>
+      </div>
+      <p class="lead">The basics</p>
+      <p>
+        Protean encodes RESTful API's using a codex.  A codex is pretty much just some
+        Clojure code in a file with an extension <code>cod.edn</code>.  The codex is the
+        single point of truth.  Nothing leaks from Protean into your source code... no
+        annotations, no pollution of any kind.
+      </p>
+
+      <pre class="prettyprint">
+    {
+    :includes ["defaults.edn"]
+
+    :title "Tutorial 1"
+
+    "tutorial-1" {"play" {:get {}}}
+    }
+      </pre>
+
+      <h3><span class="glyphicon glyphicon-info-sign" /> Explanation</h3>
+      <p>This is just about the simplest codex.  Out of this we get :</p>
+      <ul>
+        <li>an endpoint <code>tutorial-1/play</code></li>
+        <li>a <code>get</code> method</li>
+        <li>a nice title for the api docs</li>
+        <li>some free preferences for response status codes in 'defaults.edn'</li>
+      </ul>
+
+      <h3><span class="glyphicon glyphicon-play" /> Run it</h3>
+      <p>We will start with creating the apidocs for the service defined in this tutorial.</p>
+      <ol>
+        <li>
+          copy <code>tutorial-1.cod.edn</code> from <code>public/tutorial</code> to your codex directory
+        </li>
+        <li>
+          enter <code><kbd>lein run visit -f tutorial-1.cod.edn -b '{"locs":["tutorial-1"], "commands":["doc"], "directory":"silk_templates/data/protean-api"}'</kbd></code>
+        </li>
+        <li>
+          open the <code>index.html</code> file created in <code>silk_templates/site</code>
+        </li>
+      </ol>
+    </section>
+  </body>
+</html>

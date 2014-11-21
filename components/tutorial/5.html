@@ -1,0 +1,112 @@
+<html>
+  <body>
+    <section data-sw-nav="Part 5 - simulation (errors)" id="tut-part-5" data-sw-content>
+      <div class="page-header">
+        <h2>Part 5 - Simulation</h2>
+      </div>
+      <p class="lead">Simulating errors</p>
+      <p>
+        To override the default simulation behaviour (which returns success responses) create a
+        sim extension file.  We will re-use the codex from tutorial-3 (renaming it to tutorial-5)
+        and place the new sim extension in the same location.
+      </p>
+      <p>
+        The renamed codex is listed below.
+      </p>
+
+      <pre class="prettyprint">
+{
+  :includes ["defaults.edn"]
+
+  :title "Tutorial 5"
+
+  "tutorial-5" {
+    "play/${stateId}" {
+      :get {
+        :doc "A single player REST adventure world"
+        :description
+    "A simple text adventure world for one player.
+
+    Sample usage may be something like /tutorial-5/play/cave, indicating the player
+    is in a cave."
+        :vars {
+          "stateId" {:type :Int :doc "ID for the state of the game"}
+        }
+        :rsp {
+          :200 {
+            :doc "OK"
+            :body-example "test-data/content/tutorial/tutorial-3/200-ref.json"
+          }
+          :503 {
+            :doc "Service Unavailable"
+            :headers {"Content-Type" "application/problem+json" "Content-Language" "en"}
+            :body-example "test-data/content/tutorial/tutorial-3/lazy-server-gremlins.json"
+          }
+        }
+      }
+    }
+  }
+}
+      </pre>
+
+      <p>
+        Now we list our first sim extension.
+      </p>
+
+      <pre class="prettyprint">
+(refer 'protean.core.transformation.sim)
+
+{
+  "tutorial-5" {
+    "play/${stateId}" {
+      :get [#(error)]
+    }
+  }
+}
+      </pre>
+
+
+      <h3><span class="glyphicon glyphicon-info-sign" /> Explanation</h3>
+      <p>
+        In our first sim extension example we override the get method to return
+        a random error status code, which in this case must be the 503 we defined
+        in the codex.  As you can see the general structure of the sim matches that
+        of the codex.
+      </p>
+
+
+
+      <h3><span class="glyphicon glyphicon-play" /> Run it</h3>
+      <p>Run the simulation, using the tutorial-3 codex which you have already copied into your codex directory.</p>
+      <ol>
+        <li>
+          copy <code>tutorial-5.cod.edn</code> and <code>tutorial-5.sim.edn</code> from <code>public/tutorial</code> to your codex directory
+        </li>
+        <li>
+          run <code><kbd>protean-server</kbd></code>
+        </li>
+        <li>
+          run <code><kbd>protean services</kbd></code>
+        </li>
+        <li>
+          run <code><kbd>protean service-usage -n tutorial-5</kbd></code>
+        </li>
+        <li>
+          select the curl statement generated as output of the previous step and execute it
+        </li>
+      </ol>
+      <p>
+        You should see output like :
+      </p>
+
+      <pre class="prettyprint">
+{
+  "type": "http://proteanic.org/api/problems/examples/lazy-server-gremlins",
+  "title": "The service is unavailable - lazy server gremlins.",
+  "detail": "You have asked for something, but the service is unavailable, the server gremlins cannot be bothered to do any work right now.",
+  "instance": "http://host.port/tutorial-3/play"
+}
+      </pre>
+    </section>
+  </body>
+</html>
