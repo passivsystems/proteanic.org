@@ -1,0 +1,305 @@
+<html>
+<body data-sw-nav="Documentation" data-sw-priority="4">
+  <div class="row">
+    <div class="col-md-4">
+      <div data-sw-component="menu" data-sw-source="sw/bookmarks/documentation" data-sw-sort="priority">
+        Placeholder for menu
+      </div>
+    </div>
+    <div class="col-md-8" role="main">
+      <div class="page-header">
+        <h1>Documentation</h1>
+      </div>
+
+      <section data-sw-nav="Simulation Request API" id="sim-request" data-sw-content>
+        <div class="page-header">
+          <h2>Simulation Request Functions</h2>
+        </div>
+        <p class="lead">Extracting information out of simulation requests</p>
+        <ul class="list-unstyled">
+          <li>
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <span class="glyphicon glyphicon-eye-open"></span><span class="function-hdr">(query-param "my-param")</span>
+              </div>
+              <div class="panel-body">Get a specified query parameter out of the sim request</div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td width="20%">p</td>
+                    <td width="50%">specific parameter</td>
+                    <td width="30%">String</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <span class="glyphicon glyphicon-eye-open"></span><span class="function-hdr">(param :my-param)</span>
+              </div>
+              <div class="panel-body">Get a specified parameter out of the sim request</div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td width="20%">p</td>
+                    <td width="50%">specific parameter</td>
+                    <td width="30%">keyword</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <span class="glyphicon glyphicon-eye-open"></span><span class="function-hdr">(form-param "my-param")</span>
+              </div>
+              <div class="panel-body">Get a specified form parameter out of the sim request</div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td width="20%">p</td>
+                    <td width="50%">specific parameter</td>
+                    <td width="30%">String</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <span class="glyphicon glyphicon-eye-open"></span><span class="function-hdr">(body-param "my-param")</span>
+              </div>
+              <div class="panel-body">Get a specified body parameter out of the sim request</div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td width="20%">p</td>
+                    <td width="50%">specific parameter</td>
+                    <td width="30%">String</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <span class="glyphicon glyphicon-eye-open"></span><span class="function-hdr">(route-param route-params)</span>
+              </div>
+              <div class="panel-body">Get the last route parameter out of the sim request</div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td width="20%">route-params</td>
+                    <td width="50%">route params datastructure</td>
+                    <td width="30%">map</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <span class="glyphicon glyphicon-eye-open"></span><span class="function-hdr">(header "my-header")</span>
+              </div>
+              <div class="panel-body">Get a specified header out of the sim request</div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td width="20%">h</td>
+                    <td width="50%">specific header</td>
+                    <td width="30%">String</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section data-sw-nav="Simulation Response API" id="sim-response" data-sw-content>
+        <div class="page-header">
+          <h2>Simulation Response Functions</h2>
+        </div>
+        <p class="lead">Forming synchronous simulation responses</p>
+        <ul class="list-unstyled doc-list">
+          <li>
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <span class="glyphicon glyphicon-eye-open"></span><span class="function-hdr">(success)</span>
+              </div>
+              <div class="panel-body">Gets a random success response for this endpoint from the codex</div>
+            </div>
+          </li>
+          <li>
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <span class="glyphicon glyphicon-eye-open"></span><span class="function-hdr">(error)</span>
+              </div>
+              <div class="panel-body">Gets a random error response for this endpoint from the codex</div>
+            </div>
+          </li>
+          <li>
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <span class="glyphicon glyphicon-eye-open"></span><span class="function-hdr">(error 500)</span>
+              </div>
+              <div class="panel-body">Gets a specified error response for this endpoint from the codex</div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td width="20%">status</td>
+                    <td width="50%">specific error status code</td>
+                    <td width="30%">Int</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <span class="glyphicon glyphicon-eye-open"></span><span class="function-hdr">(respond 200)</span>
+              </div>
+              <div class="panel-body">Create a response with a specific status header</div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td width="20%">status</td>
+                    <td width="50%">specific status code</td>
+                    <td width="30%">Int</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <span class="glyphicon glyphicon-eye-open"></span><span class="function-hdr">(respond 200 :body-url "my-file.json")</span>
+              </div>
+              <div class="panel-body">Create a response with a specific status header and body.  Content type is inferred from file extension.</div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td width="20%">status</td>
+                    <td width="50%">specific status code</td>
+                    <td width="30%">Int</td>
+                  </tr>
+                  <tr>
+                    <td width="20%">body-url</td>
+                    <td width="50%">path to file</td>
+                    <td width="30%">String</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <span class="glyphicon glyphicon-eye-open"></span><span class="function-hdr">(respond 200 :text/plain "my response string")</span>
+              </div>
+              <div class="panel-body">Create a response with a specific status header, content type and body</div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td width="20%">status</td>
+                    <td width="50%">specific status code</td>
+                    <td width="30%">Int</td>
+                  </tr>
+                  <tr>
+                    <td width="20%">ctype</td>
+                    <td width="50%">specific content type</td>
+                    <td width="30%">keyword</td>
+                  </tr>
+                  <tr>
+                    <td width="20%">body</td>
+                    <td width="50%">body content</td>
+                    <td width="30%">String</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
