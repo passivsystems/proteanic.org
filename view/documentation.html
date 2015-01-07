@@ -265,6 +265,59 @@
               </table>
             </div>
           </li>
+          <li>
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <span class="glyphicon glyphicon-eye-open"></span><span class="function-hdr">(respond 200)</span>
+              </div>
+              <div class="panel-body">Create a response with a specific status header</div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td width="20%">status</td>
+                    <td width="50%">specific status code</td>
+                    <td width="30%">Int</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <span class="glyphicon glyphicon-eye-open"></span><span class="function-hdr">(respond 200 :body-url "my-file.json")</span>
+              </div>
+              <div class="panel-body">Create a response with a specific status header and body.  Content type is inferred from file extension.</div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td width="20%">status</td>
+                    <td width="50%">specific status code</td>
+                    <td width="30%">Int</td>
+                  </tr>
+                  <tr>
+                    <td width="20%">body-url</td>
+                    <td width="50%">path to file</td>
+                    <td width="30%">String</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
         </ul>
       </section>
 
@@ -331,59 +384,6 @@
         </div>
         <p class="lead">Forming synchronous simulation responses</p>
         <ul class="list-unstyled doc-list">
-          <li>
-            <div class="panel panel-info">
-              <div class="panel-heading">
-                <span class="glyphicon glyphicon-eye-open"></span><span class="function-hdr">(respond 200)</span>
-              </div>
-              <div class="panel-body">Create a response with a specific status header</div>
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Parameter</th>
-                    <th>Description</th>
-                    <th>Type</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td width="20%">status</td>
-                    <td width="50%">specific status code</td>
-                    <td width="30%">Int</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </li>
-          <li>
-            <div class="panel panel-info">
-              <div class="panel-heading">
-                <span class="glyphicon glyphicon-eye-open"></span><span class="function-hdr">(respond 200 :body-url "my-file.json")</span>
-              </div>
-              <div class="panel-body">Create a response with a specific status header and body.  Content type is inferred from file extension.</div>
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Parameter</th>
-                    <th>Description</th>
-                    <th>Type</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td width="20%">status</td>
-                    <td width="50%">specific status code</td>
-                    <td width="30%">Int</td>
-                  </tr>
-                  <tr>
-                    <td width="20%">body-url</td>
-                    <td width="50%">path to file</td>
-                    <td width="30%">String</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </li>
           <li>
             <div class="panel panel-info">
               <div class="panel-heading">
