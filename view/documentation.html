@@ -190,6 +190,38 @@
               </table>
             </div>
           </li>
+          <li>
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <span class="glyphicon glyphicon-eye-open"></span><span class="function-hdr">(valid-inputs?)</span>
+              </div>
+              <div class="panel-body">Check if request is well formed according to codex specification.  Used with an <code>if</code> or <code>when</code> form.</div>
+            </div>
+          </li>
+          <li>
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <span class="glyphicon glyphicon-eye-open"></span><span class="function-hdr">(validate (respond 200))</span>
+              </div>
+              <div class="panel-body">Same sa <code>valid-inputs?</code> but creates a 400 error where validation fails.</div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td width="20%">response</td>
+                    <td width="50%">a bespoke sim ext response structure</td>
+                    <td width="30%">Composite response form</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
         </ul>
       </section>
 
@@ -318,6 +350,30 @@
               </table>
             </div>
           </li>
+          <li>
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <span class="glyphicon glyphicon-eye-open"></span><span class="function-hdr">(qslurp "my-file.json")</span>
+              </div>
+              <div class="panel-body">Read a supporting resource, converting relative path to absolute.</div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td width="20%">path</td>
+                    <td width="50%">path to resource (passed as relative in sim ext).</td>
+                    <td width="30%">String</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
         </ul>
       </section>
 
@@ -384,6 +440,59 @@
         </div>
         <p class="lead">Forming synchronous simulation responses</p>
         <ul class="list-unstyled doc-list">
+          <li>
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <span class="glyphicon glyphicon-eye-open"></span><span class="function-hdr">(rsp 200)</span>
+              </div>
+              <div class="panel-body">Create a response with a specific status code.</div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td width="20%">status</td>
+                    <td width="50%">specific status code</td>
+                    <td width="30%">Int</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li>
+            <div class="panel panel-info">
+              <div class="panel-heading">
+                <span class="glyphicon glyphicon-eye-open"></span><span class="function-hdr">(h-rsp 200 "/items/12")</span>
+              </div>
+              <div class="panel-body">Create a response with a specific status code and location header.</div>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Description</th>
+                    <th>Type</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td width="20%">status</td>
+                    <td width="50%">specific status code</td>
+                    <td width="30%">Int</td>
+                  </tr>
+                  <tr>
+                    <td width="20%">hdr</td>
+                    <td width="50%">location header</td>
+                    <td width="30%">String</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
           <li>
             <div class="panel panel-info">
               <div class="panel-heading">
@@ -463,6 +572,9 @@
                 <p>
                   Assumes content type is the same as requests content type.
                 </p>
+                <p>
+                  Optional headers parameter.
+                </p>
               </div>
               <table class="table">
                 <thead>
@@ -477,6 +589,11 @@
                     <td width="20%">url</td>
                     <td width="50%">fully qualified url</td>
                     <td width="30%">String</td>
+                  </tr>
+                  <tr>
+                    <td width="20%">hdrs</td>
+                    <td width="50%">optional headers</td>
+                    <td width="30%">map</td>
                   </tr>
                   <tr>
                     <td width="20%">payload</td>
@@ -499,6 +616,9 @@
                 <p>
                   Assumes content type is the same as requests content type.
                 </p>
+                <p>
+                  Optional headers parameter.
+                </p>
               </div>
               <table class="table">
                 <thead>
@@ -513,6 +633,11 @@
                     <td width="20%">url</td>
                     <td width="50%">fully qualified url</td>
                     <td width="30%">String</td>
+                  </tr>
+                  <tr>
+                    <td width="20%">hdrs</td>
+                    <td width="50%">optional headers</td>
+                    <td width="30%">map</td>
                   </tr>
                   <tr>
                     <td width="20%">payload</td>
@@ -535,6 +660,9 @@
                 <p>
                   Assumes content type is the same as requests content type.
                 </p>
+                <p>
+                  Optional headers parameter.
+                </p>
               </div>
               <table class="table">
                 <thead>
@@ -549,6 +677,11 @@
                     <td width="20%">url</td>
                     <td width="50%">fully qualified url</td>
                     <td width="30%">String</td>
+                  </tr>
+                  <tr>
+                    <td width="20%">hdrs</td>
+                    <td width="50%">optional headers</td>
+                    <td width="30%">map</td>
                   </tr>
                   <tr>
                     <td width="20%">payload</td>
