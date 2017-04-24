@@ -10,6 +10,12 @@
           <h2>Installing</h2>
         </div>
 
+        <h3>Docker</h3>
+        <p>
+          If you would like to try Protean out and are a Docker fan
+          : <a href="https://hub.docker.com/r/rossputin/protean-example/" target="_blank">Docker Hub</a>
+        </p>
+
         <h3>Linux</h3>
         <p>
           There is a tried and tested .deb for Debian/Ubuntu flavours of Linux at
@@ -27,26 +33,13 @@
 
       <section data-sw-nav="Starting" id="starting" data-sw-content>
         <div class="page-header">
-          <h2>Starting</h2>
+          <h2>Sample API - The Pet Store</h2>
         </div>
 
         <p>
-          In a terminal run <code><kbd>protean-server</kbd></code>.  This will start the sim server.
-          You will see some output when you run this startup command, including information on where service definitions live.
+          Protean ships with a sample service/API - The Pet Store.  The instructions below
+          will describe how to run it and interact with it.
         </p>
-
-        <p>
-          There are several configuration possibilities via environment variable:
-        </p>
-
-        <ul>
-          <li>PROTEAN_SIM_PORT - the port for hitting sim endpoints (default 3000)</li>
-          <li>PROTEAN_ADMIN_PORT - the port for managing sims (default 3001)</li>
-          <li>PROTEAN_CODEX_DIR - the location for codex specifications (listed when you start the sim server)</li>
-          <li>PROTEAN_LOG_LEVEL - (default info)</li>
-          <li>PROTEAN_LOG_DIR - (default current working directory)</li>
-          <li>PROTEAN_TARGET - the location for produced API docs etc (default relative target directory)</li>
-        </ul>
       </section>
 
       <section data-sw-nav="API Documentation" id="apidocs" data-sw-content>
@@ -55,21 +48,11 @@
         </div>
 
         <p>
-          It is simple to generate API docs from your codex.
-        </p>
-
-        <p>
-          In a terminal run <code><kbd>protean doc -f myservice.cod.edn</kbd></code>.
+          In a terminal run <code><kbd>protean doc -f /protean/home/path/petstore.cod.edn</kbd></code>.
         </p>
 
         <p>
           The output in the terminal will tell you how to open your docs.
-        </p>
-
-        <p>
-          You will notice in the produced docs that values have been generated where you have specified
-          types for parameters.  This is true in the curl output also.  See the sample petstore codex
-          for examples of types.
         </p>
       </section>
 
@@ -77,6 +60,11 @@
         <div class="page-header">
           <h2>Simulation</h2>
         </div>
+
+        <p>
+          In a terminal run <code><kbd>protean-server</kbd></code>.  This will start the sim server.
+          You will see some output when you run this startup command, including information on where service/API definitions live.
+        </p>
 
         <p>
           Protean ships with a sample 'petstore' service for you to experiment with.  See <code>sample-petstore.cod.edn</code>
@@ -95,9 +83,6 @@
           <li>
             Run <code><kbd>protean service-usage -n petstore</kbd></code> to get a list of curl commands you can hit the service with.
           </li>
-          <li>
-            Add your own service to Protean by running <code><kbd>protean add-services -f myservice.cod.edn</kbd></code>.
-          </li>
         </ul>
 
       </section>
@@ -112,16 +97,9 @@
         </p>
 
         <p>
-          In a terminal run <code><kbd>protean test -f myservice.cod.edn</kbd></code>.
+          In a terminal run <code><kbd>protean test -f /path/to/myservice.cod.edn</kbd></code>.
         </p>
 
-        <p>
-          The output in the terminal will indicate success or failure as the endpoints you have specified in your codex are traversed.
-        </p>
-
-        <p>
-          We are currently working on integration testing your actual services, not the simulations.  We will update these docs when we have more news on that.
-        </p>
       </section>
     </div>
   </div>

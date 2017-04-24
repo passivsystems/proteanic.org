@@ -92,14 +92,38 @@
             <h2>Environment Variables</h2>
           </div>
 
-          <ul>
-            <li>PROTEAN_SIM_PORT - the port for hitting sim endpoints (default 3000)</li>
-            <li>PROTEAN_ADMIN_PORT - the port for managing sims (default 3001)</li>
-            <li>PROTEAN_CODEX_DIR - the location for codex specifications (listed when you start the sim server)</li>
-            <li>PROTEAN_LOG_LEVEL - (default info)</li>
-            <li>PROTEAN_LOG_DIR - (default current working directory)</li>
-            <li>PROTEAN_TARGET - the location for produced API docs etc (default relative target directory)</li>
-          </ul>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Default</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>PROTEAN_SIM_PORT</td>
+                <td>the port for hitting sim endpoints</td>
+                <td>3000</td>
+              </tr>
+              <tr>
+                <td>PROTEAN_ADMIN_PORT</td>
+                <td>the port for managing sims</td>
+                <td>3001</td>
+              </tr>
+              <tr>
+                <td>PROTEAN_CODEX_DIR</td>
+                <td>the location for codex specifications</td>
+                <td>N/A</td>
+              </tr>
+              <tr>
+                <td>PROTEAN_LOG_LEVEL</td>
+                <td>log level</td>
+                <td>info</td>
+              </tr>
+            </tbody>
+          </table>
+
         </section>
       </div>
     </div>
