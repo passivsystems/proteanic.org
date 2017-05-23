@@ -18,21 +18,23 @@
         :StateId "(cave|forest)"
       }
       :get {
-        :doc "A single player REST adventure world"
-        :description
-        "A simple text adventure world for one player.
+        :doc
+"
+A single player REST adventure world
 
-        Sample usage may be something like /tutorial-6/play/cave, indicating the player
-        is in a cave."
+A simple text adventure world for one player.
+
+Sample usage may be something like `/tutorial-6/play/cave`, indicating the player
+is in a cave.
+"
         :vars {
           "stateId" {:type :StateId :doc "ID for the state of the game"}
         }
         :rsp {
           :200 {
-            :doc "OK"
-            :body-example "test-data/content/tutorial/tutorial-3/200-ref.json"
+            :body-examples ["public/tutorial/3/200-ref.json"]
           }
-          :404 {:doc "Not Found"}
+          :404 {}
         }
       }
     }
@@ -45,19 +47,17 @@
     </p>
 
     <pre class="prettyprint">
-(refer 'protean.core.transformation.sim)
+(refer 'protean.api.transformation.sim)
 
-(defn param2rsp [{:keys [route-params]} data-path]
-  (if-let [rsp (rsp-body data-path (route-param route-params) ".json")]
+(defn param2rsp [data-path]
+  (if-let [rsp (rsp-body-file data-path (path-param "stateId") ".json")]
     (slurp rsp)
-    {:status 404}))
+    (respond 404)))
 
 {
   "tutorial-6" {
     "play/${stateId}" {
-      :get [
-      (fn [] (param2rsp *request* "public/tutorial/6"))
-      ]
+      :get [#(param2rsp "public/tutorial/6")]
     }
   }
 }

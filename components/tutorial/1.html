@@ -14,11 +14,11 @@
 
       <pre class="prettyprint">
 {
-  :includes ["defaults.edn"]
-
   :title "Tutorial 1"
 
-  "tutorial-1" {"play" {:get {}}}
+  :doc "Demonstrates the simplest possibe codex structure"
+
+  "tutorial-1" {"play" {:get {:rsp {:204 {}}}}}
 }
       </pre>
 
@@ -28,7 +28,6 @@
         <li>an endpoint <code>tutorial-1/play</code></li>
         <li>a <code>get</code> method</li>
         <li>a nice title for the api docs</li>
-        <li>some free preferences for response status codes in 'defaults.edn'</li>
       </ul>
 
       <h3><span class="glyphicon glyphicon-play" /> Run it</h3>
